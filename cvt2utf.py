@@ -20,7 +20,7 @@ DEFAULT_CONF = {
 
     # We have to set a minimum threshold. Only those target_encoding results returned by chartdet that are above
     # that threshold level would be accepted.
-    'confi_thres': 0.73,
+    'confi_thres': -1.0,
 
     # (Used in the clean_bak subcommand only) It sets the earliest time for those backup file to be cleaned.
     # If a file is created earlier than the cutoff_time, it will be skipped by the "clean_backup" command.
@@ -142,7 +142,7 @@ def walk_dir(base, scan_exts, walk_func, walk_func_args=None):
                     exit()
                 except Exception as ex:
                     log.error("Unable to process the file: %s. Please check.", file_fullname)
-                    traceback.print_exec()
+                    traceback.print_exc()
 
 
 def convert_main(args):
